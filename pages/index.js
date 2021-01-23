@@ -1,11 +1,11 @@
 import Head from "next/head";
 import * as React from "react";
 import Container from "../components/Container";
-import Profile from "../components/Profile";
 import Search from "../components/Search";
 import Spinner from "../components/Spinner";
 import { useDebounce } from "../utils/hooks";
 import { ErrorBoundary } from "react-error-boundary";
+import Repolist from "../components/Repo-list";
 
 const ProfileData = React.lazy(() => import("../components/Profile"));
 
@@ -46,6 +46,7 @@ export default function Home() {
         >
           <React.Suspense fallback={<Spinner />}>
             <ProfileData username={debaouncedUsername} />
+            <Repolist username={debaouncedUsername} />
           </React.Suspense>
         </ErrorBoundary>
       ) : (

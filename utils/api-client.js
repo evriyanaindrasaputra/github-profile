@@ -1,16 +1,8 @@
-const API_URL = 'https://api.github.com';
+const API_URL = "https://api.github.com";
 
-export default function client(
-  endpoint,
-  { data, headers: customHeaders, ...customConfig } = {}
-) {
+export default function client(endpoint, { ...customConfig } = {}) {
   const config = {
-    method: data ? "POST" : "GET",
-    body: data ? JSON.stringify(data) : undefined,
-    headers: {
-      "Content-Type": data ? "application/json" : undefined,
-      ...customHeaders,
-    },
+    method: "GET",
     ...customConfig,
   };
 
